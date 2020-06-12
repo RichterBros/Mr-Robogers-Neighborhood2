@@ -23,20 +23,7 @@ Numbers.prototype.numberArray = function () {
         $("#results").text("Please enter a number")
     } else {
 
-        // if (this.counter === 1) {
-        //     $("#roboRogers").show();
-        //     $("#roboRogers2").hide();
-        //     $("#roboRogers3").hide();
-        // } else if (this.counter === 2) {
-        //     $("#roboRogers").hide();
-        //     $("#roboRogers2").show();
-        //     $("#roboRogers3").hide();
-        // } else if (this.counter === 3) {
-        //     $("#roboRogers").hide();
-        //     $("#roboRogers2").hide();
-        //     $("#roboRogers3").show();
-        //     this.counter = 0;
-        // }
+        
         console.log(this.switch)
         for (i = 0; i < this.userInput + 1; i++) {
             this.newArr.push(i)
@@ -106,34 +93,41 @@ $(document).ready(function () {
     $("#reset").click(function () {
         location.reload();
     });
+ 
     $("#submit").click(function () {
-      
-        $("#roboRogers").show();
-        $("#roboRogers2").hide();
-        $("#roboRogers3").hide();
-    
-    
-    });
-    $("#submit").click(function () {
-        //number.numberArray();
         number.counter += 1
         number.switch = 0
         console.log(number.switch)
         $("#results").text(number.numberArray())
         console.log(number.newStringReversed)
         console.log(number.newString)
+        console.log(number.counter)
+        if (number.counter === 1) {
+            $("#roboRogers").show();
+            $("#roboRogers2").hide();
+            $("#roboRogers3").hide();
+        } else if (number.counter === 2) {
+            $("#roboRogers").hide();
+            $("#roboRogers2").show();
+            $("#roboRogers3").hide();
+        } else if (number.counter === 3) {
+            $("#roboRogers").hide();
+            $("#roboRogers2").hide();
+            $("#roboRogers3").show();
+            number.counter = 0;
+        }
     });
 
     $("#submitReversed").click(function () {
         number.switch = 1
         console.log(number.switch)
-        
-        //number.switch.numberArray()
         $("#resultsReversed").text(number.numberArray())
         console.log(number.newStringReversed)
         console.log(number.newString)
     });
-
 });
+        
+       
+       
 
 
