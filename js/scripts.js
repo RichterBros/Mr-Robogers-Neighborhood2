@@ -1,17 +1,19 @@
-function Numbers(userInput, newArr, newString) {
+function Numbers(userInput, newArr, newString, newStringReversed) {
     this.userInput = userInput;
     this.newArr = newArr;
     this.newString = newString;
     this.counter = 0;
+    this.newStringReversed = newStringReversed;
 }
 
-var number = new Numbers()
+const number = new Numbers()
 
 Numbers.prototype.numberArray = function () {
     this.counter += 1;
     this.userInput = parseInt($("#userInput").val());
     this.newArr = [];
     this.newString = "";
+    this.newStringReversed = "";
     
     if (isNaN(this.userInput)) {
         console.log("not a number")
@@ -36,33 +38,45 @@ Numbers.prototype.numberArray = function () {
         for (i = 0; i < this.userInput + 1; i++) {
             this.newArr.push(i)
         }
-
+        this.newStringReversed = this.newArr.join().split(',').reverse()
         this.newString = this.newArr.join().split(',')
-
+        
         for (i = 0; i < this.newString.length; i++) {
-            if (this.newString[i].includes("3")) {
+            if (this.newString[i].includes("3") && this.newStringReversed[i].includes("3")) {
                 this.newString[i] = "Won't you be my neighbor?"
+                this.newStringReversed[i] = "Won't you be my neighbor?"
             } else if (this.newString[i].includes("2")) {
                 this.newString[i] = "boop!"
+                this.newStringReversed[i] = "boop!"
             } else if (this.newString[i].includes("1")) {
                 this.newString[i] = "beep!"
+                this.newStringReversed[i] = "beep!"
             }
         }
-        
         $("#results").text(this.newString)
+        $("#resultsReversed").text(this.newStringReversed)
         this.newArr = []
     }
 }
 
 $(document).ready(function () {
-
+    
     $("#reset").click(function () {
         location.reload();
     });
-
+    
     $("#submit").click(function () {
         number.numberArray();
+        console.log(number.newStringReversed)
+        console.log(number.newString)
     });
+
+    $("#submitReversed").click(function () {
+        number.numberArray();
+        console.log(number.newStringReversed)
+        console.log(number.newString)
+    });
+
 });
 
 
