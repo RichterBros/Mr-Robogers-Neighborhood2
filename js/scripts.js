@@ -13,94 +13,65 @@ function Numbers(userInput, newArr, newString, newStringReversed) {
 const number = new Numbers()
 
 Numbers.prototype.numberArray = function () {
-    //this.counter += 1;
-    //this.userInput = parseInt($("#userInput").val());
     this.newArr = [];
     this.newString = "";
     this.newStringReversed = "";
-    
-    
-    if (isNaN(this.userInput)) {
-        console.log("not a number")
-       //$("#results").text("Please enter a number")
-    } else {
 
-        
+    if (isNaN(this.userInput)) {
+      } else {
         console.log(this.switch)
         for (i = 0; i < this.userInput + 1; i++) {
             this.newArr.push(i)
         }
+        
         this.newStringReversed = this.newArr.join().split(',').reverse()
         this.newString = this.newArr.join().split(',')
-        
-if(this.switch === 0){
 
-        for (i = 0; i < this.newString.length; i++) {
-            if (this.newString[i].includes("3")) {
-                this.newString[i] = "Won't you be my neighbor?"
-                
-            } else if (this.newString[i].includes("2")) {
-                this.newString[i] = "boop!"
-                
-            } else if (this.newString[i].includes("1")) {
-                this.newString[i] = "beep!"
-                
+        if (this.switch === 0) {
+            for (i = 0; i < this.newString.length; i++) {
+                if (this.newString[i].includes("3")) {
+                    this.newString[i] = "Won't you be my neighbor?"
+                } else if (this.newString[i].includes("2")) {
+                    this.newString[i] = "boop!"
+                } else if (this.newString[i].includes("1")) {
+                    this.newString[i] = "beep!"
+                }
             }
+            console.log(this.newString)
+            return this.newString
         }
-        console.log(this.newString)
-        return this.newString
-    }
-    
-    if(this.switch === 1){
+        if (this.switch === 1) {
+            for (i = 0; i < this.newStringReversed.length; i++) {
+                if (this.newStringReversed[i].includes("3")) {
+                    this.newStringReversed[i] = "Won't you be my neighbor?"
 
-        for (i = 0; i < this.newStringReversed.length; i++) {
-            if (this.newStringReversed[i].includes("3")) {
-                this.newStringReversed[i] = "Won't you be my neighbor?"
-                
-            } else if (this.newStringReversed[i].includes("2")) {
-                this.newStringReversed[i] = "boop!"
-                
-            } else if (this.newStringReversed[i].includes("1")) {
-                this.newStringReversed[i] = "beep!"
-                
+                } else if (this.newStringReversed[i].includes("2")) {
+                    this.newStringReversed[i] = "boop!"
+
+                } else if (this.newStringReversed[i].includes("1")) {
+                    this.newStringReversed[i] = "beep!"
+                }
             }
+                return this.newStringReversed
         }
-        return this.newStringReversed
-    
-    } 
-        
-    
-    
-    
-        
-        
-        //if (this.switch === 0){
-         //   return this.newString
-        }
-        if (this.switch === 1){
-            return this.newStringReversed
-        }
-    
-        //    let outPut = this.newString
-    //    let outputReversed = this.newStringReversed
-        
-     //  $("#results").text(this.newString)
-        //$("#resultsReversed").text(this.newStringReversed)
-        this.newArr = []
+
     }
 
+}
 
 $(document).ready(function () {
     $("#reset").click(function () {
-        location.reload();
+        $("#results").hide()
+        $("#resultsReversed").hide()
+        $('#userInput').val('');
     });
-    
     $("#submit").click(function () {
+        $("#results").show();
+        $("#resultsReversed").hide();
         number.userInput = parseInt($("#userInput").val())
-       
-        if (isNaN(this.userInput)) {
+        if (isNaN(number.userInput)) {
             console.log("not a number")
-           $("#results").text("Please enter a number")
+            $("#results").text("Please enter a number")
         }
         number.counter += 1
         number.switch = 0
@@ -124,9 +95,14 @@ $(document).ready(function () {
             number.counter = 0;
         }
     });
-
     $("#submitReversed").click(function () {
+        $("#results").hide();
+        $("#resultsReversed").show();
         number.userInput = parseInt($("#userInput").val())
+        if (isNaN(number.userInput)) {
+            console.log("not a number")
+            $("#resultsReversed").text("Please enter a number")
+        }
         number.switch = 1
         number.counter += 1
         console.log(number.switch)
@@ -146,12 +122,13 @@ $(document).ready(function () {
             $("#roboRogers2").hide();
             $("#roboRogers3").show();
             number.counter = 0;
-            }
-       
+        }
     });
 });
-        
-       
-       
+
+
+
+
+
 
 
