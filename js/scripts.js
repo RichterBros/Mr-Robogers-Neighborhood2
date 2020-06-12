@@ -5,12 +5,13 @@ function Numbers(userInput, newArr, newString, newStringReversed) {
     this.counter = 0;
     this.newStringReversed = newStringReversed;
     this.switch = 0;
+    this.counter = 0;
 }
 
 const number = new Numbers()
 
 Numbers.prototype.numberArray = function () {
-    this.counter += 1;
+    //this.counter += 1;
     this.userInput = parseInt($("#userInput").val());
     this.newArr = [];
     this.newString = "";
@@ -22,20 +23,20 @@ Numbers.prototype.numberArray = function () {
         $("#results").text("Please enter a number")
     } else {
 
-        if (this.counter === 1) {
-            $("#roboRogers").show();
-            $("#roboRogers2").hide();
-            $("#roboRogers3").hide();
-        } else if (this.counter === 2) {
-            $("#roboRogers").hide();
-            $("#roboRogers2").show();
-            $("#roboRogers3").hide();
-        } else if (this.counter === 3) {
-            $("#roboRogers").hide();
-            $("#roboRogers2").hide();
-            $("#roboRogers3").show();
-            this.counter = 0;
-        }
+        // if (this.counter === 1) {
+        //     $("#roboRogers").show();
+        //     $("#roboRogers2").hide();
+        //     $("#roboRogers3").hide();
+        // } else if (this.counter === 2) {
+        //     $("#roboRogers").hide();
+        //     $("#roboRogers2").show();
+        //     $("#roboRogers3").hide();
+        // } else if (this.counter === 3) {
+        //     $("#roboRogers").hide();
+        //     $("#roboRogers2").hide();
+        //     $("#roboRogers3").show();
+        //     this.counter = 0;
+        // }
         console.log(this.switch)
         for (i = 0; i < this.userInput + 1; i++) {
             this.newArr.push(i)
@@ -56,11 +57,32 @@ if(this.switch === 0){
                 this.newString[i] = "beep!"
                 
             }
-            
         }
-    }  
         console.log(this.newString)
         return this.newString
+    }
+    
+    if(this.switch === 1){
+
+        for (i = 0; i < this.newStringReversed.length; i++) {
+            if (this.newStringReversed[i].includes("3")) {
+                this.newStringReversed[i] = "Won't you be my neighbor?"
+                
+            } else if (this.newStringReversed[i].includes("2")) {
+                this.newStringReversed[i] = "boop!"
+                
+            } else if (this.newStringReversed[i].includes("1")) {
+                this.newStringReversed[i] = "beep!"
+                
+            }
+        }
+        return this.newStringReversed
+    
+    } 
+        
+    
+    
+    
         
         
         //if (this.switch === 0){
@@ -84,9 +106,17 @@ $(document).ready(function () {
     $("#reset").click(function () {
         location.reload();
     });
+    $("#submit").click(function () {
+      
+        $("#roboRogers").show();
+        $("#roboRogers2").hide();
+        $("#roboRogers3").hide();
     
+    
+    });
     $("#submit").click(function () {
         //number.numberArray();
+        number.counter += 1
         number.switch = 0
         console.log(number.switch)
         $("#results").text(number.numberArray())
