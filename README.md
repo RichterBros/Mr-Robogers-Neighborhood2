@@ -33,6 +33,10 @@
 * choose a location on your computer and press _enter_
 * navigate to the folder and open index.html in a browser of your choice
 
+## Link to gh-pages:
+
+https://richterbros.github.io/Mr-Robogers-Neighborhood2/
+
 ## Known Bugs
 
 none yet
