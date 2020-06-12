@@ -22,8 +22,8 @@
 | Numbers that contain a 2: all digits are replaced (all digits) with "Boop!" | "2" | "Boop!" |
 | Numbers that contain a 3: all digits are replaced (all digits) with "Won't you be my neighbor?." | "3" | "Won't you be my neighbor?" |
 | If no number is entered, a promt will display asking the user to enter a number. | "NaN" | "Please enter a number" |
-| Everytime the user clicks on the "submit your number!" button, page will cycle through three different images. | "Button click" | "image cnhanges" |
-| The "reset" button refreshes the page. | "Button click" | "refresh page" |
+| Everytime the user clicks on the "submit your number!" button, page will cycle through three different images. | "Submit Button click" | "image cnhanges" |
+| The "reset" button refreshes the page. | "Button click" | "clears output field and form" |
 
 ## Setup/Installation Requirements
 

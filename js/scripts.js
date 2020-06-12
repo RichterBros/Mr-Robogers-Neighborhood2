@@ -6,7 +6,6 @@ function Numbers(userInput, newArr, newString, newStringReversed) {
     this.newStringReversed = newStringReversed;
     this.switch = 0;
     this.counter = 0;
-    this.warning = 0
     this.userInput = ""
 }
 
@@ -16,10 +15,9 @@ Numbers.prototype.numberArray = function () {
     this.newArr = [];
     this.newString = "";
     this.newStringReversed = "";
-
+    
     if (isNaN(this.userInput)) {
       } else {
-        console.log(this.switch)
         for (i = 0; i < this.userInput + 1; i++) {
             this.newArr.push(i)
         }
@@ -37,17 +35,14 @@ Numbers.prototype.numberArray = function () {
                     this.newString[i] = "beep!"
                 }
             }
-            console.log(this.newString)
-            return this.newString
+                return this.newString
         }
         if (this.switch === 1) {
             for (i = 0; i < this.newStringReversed.length; i++) {
                 if (this.newStringReversed[i].includes("3")) {
                     this.newStringReversed[i] = "Won't you be my neighbor?"
-
                 } else if (this.newStringReversed[i].includes("2")) {
                     this.newStringReversed[i] = "boop!"
-
                 } else if (this.newStringReversed[i].includes("1")) {
                     this.newStringReversed[i] = "beep!"
                 }
@@ -70,16 +65,11 @@ $(document).ready(function () {
         $("#resultsReversed").hide();
         number.userInput = parseInt($("#userInput").val())
         if (isNaN(number.userInput)) {
-            console.log("not a number")
             $("#results").text("Please enter a number")
         }
         number.counter += 1
         number.switch = 0
-        console.log(number.switch)
         $("#results").text(number.numberArray())
-        console.log(number.newStringReversed)
-        console.log(number.newString)
-        console.log(number.counter)
         if (number.counter === 1) {
             $("#roboRogers").show();
             $("#roboRogers2").hide();
@@ -100,15 +90,11 @@ $(document).ready(function () {
         $("#resultsReversed").show();
         number.userInput = parseInt($("#userInput").val())
         if (isNaN(number.userInput)) {
-            console.log("not a number")
             $("#resultsReversed").text("Please enter a number")
         }
         number.switch = 1
         number.counter += 1
-        console.log(number.switch)
         $("#resultsReversed").text(number.numberArray())
-        console.log(number.newStringReversed)
-        console.log(number.newString)
         if (number.counter === 1) {
             $("#roboRogers").show();
             $("#roboRogers2").hide();
@@ -125,10 +111,16 @@ $(document).ready(function () {
         }
     });
 });
+           
+        
+        
 
 
 
 
+       
 
 
 
+            
+        
