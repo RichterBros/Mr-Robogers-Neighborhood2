@@ -1,0 +1,37 @@
+.display-5 {
+    color: #3a3838;
+    text-align: center;
+  }
+
+  img {
+    width:450px;
+    height:225px;
+    border-radius:5px;
+    border-width:1px;
+    overflow:none;
+    border-color:#428bca;
+    border-style:solid;
+  }
+
+  #roboRogers {
+    display: none;
+  }
+
+  #roboRogers2 {
+    display: none;
+  }
+
+  #roboRogers3 {
+    display: none;
+  }
+
+  body {
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+
+  .jumbotron {
+    background: rgba(204, 204, 204, 0.9);
+}
