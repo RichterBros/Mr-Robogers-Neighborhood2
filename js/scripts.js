@@ -9,7 +9,7 @@ function Numbers(userInput, newArr, newString, newStringReversed) {
     this.userInput = ""
 }
 
-const number = new Numbers()
+const number = new Numbers
 
 Numbers.prototype.numberArray = function () {
     this.newArr = [];
