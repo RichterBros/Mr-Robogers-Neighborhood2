@@ -1,21 +1,12 @@
-function Numbers(userInput, newArr, newString, newStringReversed) {
-    this.userInput = userInput;
-    this.newArr = newArr;
-    this.newString = newString;
-    this.counter = 0;
-    this.newStringReversed = newStringReversed;
-    this.switch = 0;
-    this.counter = 0;
-    this.userInput = ""
-}
-
-const number = new Numbers()
-
-Numbers.prototype.numberArray = function () {
+function Numbers() {
     this.newArr = [];
     this.newString = "";
     this.newStringReversed = "";
-    
+    this.switch = 0;
+    this.userInput = "";
+}
+
+Numbers.prototype.numberArray = function () {
     if (isNaN(this.userInput)) {
       } else {
         for (i = 0; i < this.userInput + 1; i++) {
@@ -49,78 +40,67 @@ Numbers.prototype.numberArray = function () {
             }
                 return this.newStringReversed
         }
-
     }
-
 }
 
 $(document).ready(function () {
+    let counter = 0;
     $("#reset").click(function () {
         $("#results").hide()
         $("#resultsReversed").hide()
         $('#userInput').val('');
     });
     $("#submit").click(function () {
+        let number = new Numbers()
+        number.switch = 0
+        counter += 1
         $("#results").show();
         $("#resultsReversed").hide();
         number.userInput = parseInt($("#userInput").val())
         if (isNaN(number.userInput)) {
             $("#results").text("Please enter a number")
         }
-        number.counter += 1
-        number.switch = 0
         $("#results").text(number.numberArray())
-        if (number.counter === 1) {
+        if (counter === 1) {
             $("#roboRogers").show();
             $("#roboRogers2").hide();
             $("#roboRogers3").hide();
-        } else if (number.counter === 2) {
+        } else if (counter === 2) {
             $("#roboRogers").hide();
             $("#roboRogers2").show();
             $("#roboRogers3").hide();
-        } else if (number.counter === 3) {
+        } else if (counter === 3) {
             $("#roboRogers").hide();
             $("#roboRogers2").hide();
             $("#roboRogers3").show();
-            number.counter = 0;
+            counter = 0;
         }
     });
     $("#submitReversed").click(function () {
+        counter += 1
+        let number = new Numbers()
+        number.switch = 1
+        number.counter += 1
         $("#results").hide();
         $("#resultsReversed").show();
         number.userInput = parseInt($("#userInput").val())
         if (isNaN(number.userInput)) {
             $("#resultsReversed").text("Please enter a number")
         }
-        number.switch = 1
-        number.counter += 1
         $("#resultsReversed").text(number.numberArray())
-        if (number.counter === 1) {
+        if (counter === 1) {
             $("#roboRogers").show();
             $("#roboRogers2").hide();
             $("#roboRogers3").hide();
-        } else if (number.counter === 2) {
+        } else if (counter === 2) {
             $("#roboRogers").hide();
             $("#roboRogers2").show();
             $("#roboRogers3").hide();
-        } else if (number.counter === 3) {
+        } else if (counter === 3) {
             $("#roboRogers").hide();
             $("#roboRogers2").hide();
             $("#roboRogers3").show();
-            number.counter = 0;
+            counter = 0;
         }
     });
 });
-           
-        
-        
-
-
-
-
-       
-
-
-
-            
-        
